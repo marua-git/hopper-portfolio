@@ -1,19 +1,19 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Hopper — портфолио</title>
-<meta name="description" content="Портфолио платформы Hopper: интерьеры, рендеры по плану, 3D-модели и персонажи, мебель из фото, ролики и моушн-графика.">
-<meta property="og:title" content="Hopper — портфолио">
-<meta property="og:description" content="ИИ-платформа, где идея становится чертежом, 3D и роликом.">
+<title>Hopper — Portfolio</title>
+<meta name="description" content="Hopper portfolio: interiors, renders from floor plans, 3D models and characters, furniture from a photo, animated videos and motion graphics.">
+<meta property="og:title" content="Hopper — Portfolio">
+<meta property="og:description" content="An AI platform that turns an idea into a drawing, a 3D model and a video.">
 <meta property="og:image" content="media/r3d-statue-1.jpg">
 <link rel="icon" href="media/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Layout: тёмная студия со светящимся градиентом из цветов логотипа Hopper; обложка с живой 3D-моделью, галерея с фильтром, кейсы по направлениям. */
+/* Layout: violet gradient studio in Hopper logo colours; hero with a live 3D model, filterable gallery, case sections. */
 :root {
   --bg: #110a2a; --bg2: rgba(20, 10, 48, .6); --card: rgba(255, 255, 255, .05); --card-solid: #1c1240;
   --ink: #f6f2ff; --muted: #b6abd9; --line: rgba(255, 255, 255, .09);
@@ -40,7 +40,7 @@ p { margin: 0; }
 .gt { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
 
-/* Светящийся фон */
+/* Glow background */
 .aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
 .aurora i { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .55; animation: drift 22s ease-in-out infinite alternate; }
 .aurora i:nth-child(1) { width: 60vw; height: 60vw; left: -15vw; top: -25vw; background: #6d28d9; }
@@ -49,7 +49,7 @@ p { margin: 0; }
 .aurora i:nth-child(4) { width: 35vw; height: 35vw; left: 5vw; top: 35vw; background: #4f46e5; opacity: .4; animation-duration: 34s; }
 @keyframes drift { to { transform: translate(6vw, 4vw) scale(1.12); } }
 
-/* Меню */
+/* Menu */
 .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(22, 11, 54, .62); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); border-bottom: 1px solid var(--line); }
 .nav .in { display: flex; align-items: center; gap: 24px; height: 68px; }
 .brand { display: flex; align-items: center; gap: 10px; font: 700 18px/1 var(--display); text-decoration: none; }
@@ -61,7 +61,7 @@ p { margin: 0; }
 .links a.on { color: #fff; background: var(--grad); }
 @media (max-width: 720px) { .brand span { display: none; } .nav .in { gap: 8px; } .links a { padding: 8px 10px; font-size: 13px; } }
 
-/* Обложка */
+/* Hero */
 .cover { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
 .cover > .in { position: relative; z-index: 1; }
 .hero { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 40px; align-items: center; padding-block: 64px 40px; }
@@ -86,7 +86,7 @@ p { margin: 0; }
 .fact b { display: block; font: 700 26px/1.15 var(--display); font-variant-numeric: tabular-nums; }
 .fact span { font-size: 14px; color: var(--muted); }
 
-/* Лента */
+/* Marquee */
 .marquee { padding-block: 28px; border-bottom: 1px solid var(--line); overflow: hidden; background: var(--bg2); }
 .track { display: flex; gap: 14px; width: max-content; animation: slide 80s linear infinite; }
 .track > * { height: 200px; border-radius: 16px; overflow: hidden; flex: none; }
@@ -94,7 +94,7 @@ p { margin: 0; }
 @keyframes slide { to { transform: translateX(-50%); } }
 .marquee:hover .track { animation-play-state: paused; }
 
-/* Разделы */
+/* Sections */
 section.block, .case { padding-block: 104px 8px; position: relative; }
 .head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 40px; align-items: end; margin-bottom: 36px; }
 .head h2 { font-size: clamp(26px, 3.4vw, 46px); line-height: 1.1; margin-top: 14px; }
@@ -216,12 +216,12 @@ footer a:hover { color: var(--ink); }
 <header class="nav">
   <div class="in">
     <a class="brand" href="#top"><img src="media/logo.svg" alt="" width="30" height="30"><span>Hopper</span></a>
-    <nav class="links" aria-label="Разделы">
-      <a href="#works">Работы</a>
-      <a href="#architecture">Архитектура</a>
+    <nav class="links" aria-label="Sections">
+      <a href="#works">Work</a>
+      <a href="#architecture">Architecture</a>
       <a href="#three-d">3D</a>
-      <a href="#motion">Моушн</a>
-      <a href="#about">Обо мне</a>
+      <a href="#motion">Motion</a>
+      <a href="#about">About</a>
     </nav>
   </div>
 </header>
@@ -231,27 +231,27 @@ footer a:hover { color: var(--ink); }
   <div class="in">
     <div class="hero">
       <div>
-        <p class="eyebrow">Портфолио · Маруа Макпыр</p>
-        <h1>Идея словами — <span class="gt">чертёж, 3D и ролик</span> за минуты</h1>
-        <p class="lead">Hopper — моя ИИ-платформа для креативной работы. Описываешь задачу словами или загружаешь фото, и <b>Hopper делает интерьер, фотореалистичный кадр, 3D-модель или анимационный ролик</b>. Всё на этом сайте сгенерировано в Hopper.</p>
-        <div class="cta"><a class="btn primary" href="#works">Смотреть работы</a><a class="btn ghost" href="#about">О платформе</a></div>
+        <p class="eyebrow">Portfolio · Marua Makpyr</p>
+        <h1>Describe an idea — get <span class="gt">a drawing, 3D and video</span> in minutes</h1>
+        <p class="lead">Hopper is my AI platform for creative work. Describe the task in words or upload a photo, and <b>Hopper creates an interior, a photorealistic shot, a 3D model or an animated video</b>. Everything on this site was generated in Hopper.</p>
+        <div class="cta"><a class="btn primary" href="#works">See the work</a><a class="btn ghost" href="#about">About the platform</a></div>
       </div>
       <div class="viewer" id="viewer">
-        <img src="media/r3d-statue-1.jpg" alt="3D-модель статуи с весами, сгенерированная в Hopper" id="viewerFallback">
+        <img src="media/r3d-statue-1.jpg" alt="3D model of a statue with scales, generated in Hopper" id="viewerFallback">
         <div class="vbar">
-          <span class="note" id="vnote">3D-модель из Hopper · покрутите мышью</span>
-          <div class="pick" role="group" aria-label="Модель">
-            <button type="button" id="m-statue" aria-pressed="true" data-m="statue">Статуя</button>
-            <button type="button" id="m-orc" aria-pressed="false" data-m="orc">Орк</button>
+          <span class="note" id="vnote">A 3D model made in Hopper · drag to rotate</span>
+          <div class="pick" role="group" aria-label="Model">
+            <button type="button" id="m-statue" aria-pressed="true" data-m="statue">Statue</button>
+            <button type="button" id="m-orc" aria-pressed="false" data-m="orc">Orc</button>
           </div>
         </div>
       </div>
     </div>
     <div class="facts">
-      <div class="fact"><b class="gt">3</b><span>направления уже работают: Архитектура, 3D, Моушн-дизайн</span></div>
-      <div class="fact"><b class="gt">29–89 с</b><span>мебель из одной фотографии — в 3D-модель точных размеров</span></div>
-      <div class="fact"><b class="gt">≈1 млн</b><span>треугольников в 3D-модели с текстурой — из одной картинки</span></div>
-      <div class="fact"><b class="gt">12</b><span>стилей моушн-графики, правки словами</span></div>
+      <div class="fact"><b class="gt">3</b><span>areas already live: Architecture, 3D, Motion design</span></div>
+      <div class="fact"><b class="gt">29–89 s</b><span>from a single photo of furniture to a 3D model with exact dimensions</span></div>
+      <div class="fact"><b class="gt">≈1 M</b><span>triangles in a textured 3D model — from one image</span></div>
+      <div class="fact"><b class="gt">12</b><span>motion graphics styles, edited with words</span></div>
     </div>
   </div>
 </section>
@@ -261,105 +261,105 @@ footer a:hover { color: var(--ink); }
 <main>
 <section class="block in" id="works">
   <div class="head">
-    <div><p class="eyebrow">Работы</p><h2>Избранное из <span class="gt">Hopper</span></h2></div>
-    <p>Интерьеры, 3D-модели и персонажи, ролики и моушн-графика. Нажмите на работу, чтобы открыть её крупно; стрелки листают дальше.</p>
+    <div><p class="eyebrow">Work</p><h2>Selected work from <span class="gt">Hopper</span></h2></div>
+    <p>Interiors, 3D models and characters, videos and motion graphics. Click any piece to open it full screen; use the arrows to browse.</p>
   </div>
-  <div class="filters" id="filters" role="group" aria-label="Фильтр работ"></div>
+  <div class="filters" id="filters" role="group" aria-label="Filter work"></div>
   <div class="works" id="grid"></div>
 </section>
 
 <section class="case in" id="architecture">
   <div class="head">
-    <div><p class="eyebrow">01 · Архитектура и интерьер</p><h2>От концепции до рендера — <span class="gt">без CAD и недель работы</span></h2></div>
-    <p>Весь путь проекта живёт в одном месте: план → интерьер → рендер. Hopper распознаёт стены, двери и окна на фото планировки, а правки делаются словами: «добавь окно», «сделай светлее».</p>
+    <div><p class="eyebrow">01 · Architecture & interiors</p><h2>From concept to render — <span class="gt">no CAD, no weeks of work</span></h2></div>
+    <p>The whole project lives in one place: plan → interior → render. Hopper reads walls, doors and windows from a photo of a floor plan, and you make changes in plain words: “add a window”, “make it brighter”.</p>
   </div>
   <div class="steps3">
-    <figure><img src="media/drawings.jpg" alt="Чертёж в 3D-виде" loading="lazy"><figcaption><b>Чертёж.</b> Фото или скан плана превращается в редактируемый чертёж с 3D-видом.</figcaption></figure>
-    <figure><img src="media/interior.jpg" alt="Интерьер столовой" loading="lazy"><figcaption><b>Интерьер.</b> Стиль, материалы, мебель — несколько вариантов по одному плану.</figcaption></figure>
-    <figure><img src="media/render.jpg" alt="Рендер дома" loading="lazy"><figcaption><b>Рендер.</b> Фотореалистичные кадры для презентации и продаж.</figcaption></figure>
+    <figure><img src="media/drawings.jpg" alt="Drawing in 3D view" loading="lazy"><figcaption><b>Drawing.</b> A photo or scan of a plan becomes an editable drawing with a 3D view.</figcaption></figure>
+    <figure><img src="media/interior.jpg" alt="Dining room interior" loading="lazy"><figcaption><b>Interior.</b> Style, materials, furniture — several options from one plan.</figcaption></figure>
+    <figure><img src="media/render.jpg" alt="House render" loading="lazy"><figcaption><b>Render.</b> Photorealistic shots for presentations and sales.</figcaption></figure>
   </div>
   <div class="sub">
-    <h3>Интерьер в нужном стиле — кадры, как с фотосессии</h3>
+    <h3>Interiors in any style — shots that look like a photo shoot</h3>
     <div class="rooms">
-      <figure class="wide"><img src="media/living.jpg" alt="Гостиная с двусветным пространством" loading="lazy"></figure>
-      <figure><img src="media/kitchen.jpg" alt="Кухня-гостиная" loading="lazy"></figure>
-      <figure><img src="media/bedroom_2.jpg" alt="Спальня" loading="lazy"></figure>
-      <figure><img src="media/balcony.jpg" alt="Лоджия" loading="lazy"></figure>
-      <figure><img src="media/bedroom_1.jpg" alt="Спальня, вариант" loading="lazy"></figure>
-      <figure><img src="media/bedroom_3.jpg" alt="Спальня вечером" loading="lazy"></figure>
+      <figure class="wide"><img src="media/living.jpg" alt="Double-height living room" loading="lazy"></figure>
+      <figure><img src="media/kitchen.jpg" alt="Kitchen and living room" loading="lazy"></figure>
+      <figure><img src="media/bedroom_2.jpg" alt="Bedroom" loading="lazy"></figure>
+      <figure><img src="media/balcony.jpg" alt="Loggia" loading="lazy"></figure>
+      <figure><img src="media/bedroom_1.jpg" alt="Bedroom, alternative" loading="lazy"></figure>
+      <figure><img src="media/bedroom_3.jpg" alt="Bedroom in the evening" loading="lazy"></figure>
     </div>
   </div>
   <div class="sub">
-    <h3>«Фото»: квартира по плану при дневном и вечернем свете</h3>
-    <p>Hopper расставляет мебель по плану и снимает квартиру в Blender на видеокарте нашего сервера. Свет меняется одной кнопкой: день или вечер, тёплые 2700 K или холодные 6500 K.</p>
+    <h3>“Photo”: an apartment from its floor plan, in daylight and in the evening</h3>
+    <p>Hopper furnishes the plan and shoots the apartment in Blender on our own GPU server. Lighting changes with one click: day or evening, warm 2700 K or cool 6500 K.</p>
     <div class="light">
-      <figure class="stage"><img id="lightImg" src="media/foto-g-p1-kitchen-0-evening.jpg" alt="Кухня, вечерний свет"><figcaption id="lightCap">Кухня · вечер</figcaption></figure>
+      <figure class="stage"><img id="lightImg" src="media/foto-g-p1-kitchen-0-evening.jpg" alt="Kitchen, evening light"><figcaption id="lightCap">Kitchen · evening</figcaption></figure>
       <div class="panel">
-        <div><p class="label">Комната</p><div class="seg" id="roomSeg">
-          <button type="button" id="r-k" aria-pressed="true" data-v="p1-kitchen-0">Кухня</button>
-          <button type="button" id="r-p2" aria-pressed="false" data-v="p2-living-0">Гостиная</button>
-          <button type="button" id="r-p5" aria-pressed="false" data-v="p5-living-0">Гостиная 2</button>
+        <div><p class="label">Room</p><div class="seg" id="roomSeg">
+          <button type="button" id="r-k" aria-pressed="true" data-v="p1-kitchen-0">Kitchen</button>
+          <button type="button" id="r-p2" aria-pressed="false" data-v="p2-living-0">Living room</button>
+          <button type="button" id="r-p5" aria-pressed="false" data-v="p5-living-0">Living room 2</button>
         </div></div>
-        <div><p class="label">Свет</p><div class="seg" id="timeSeg">
-          <button type="button" id="t-day" aria-pressed="false" data-v="day">День</button>
-          <button type="button" id="t-eve" aria-pressed="true" data-v="evening">Вечер</button>
+        <div><p class="label">Light</p><div class="seg" id="timeSeg">
+          <button type="button" id="t-day" aria-pressed="false" data-v="day">Day</button>
+          <button type="button" id="t-eve" aria-pressed="true" data-v="evening">Evening</button>
         </div></div>
-        <div><p class="label">Цвет света вечером</p>
+        <div><p class="label">Evening light colour</p>
           <div class="kelvin">
-            <figure><img src="media/foto-L-living2-eve-2700.jpg" alt="Тёплый свет 2700 K" loading="lazy"><figcaption>2700 K</figcaption></figure>
-            <figure><img src="media/foto-L-living2-eve-4000.jpg" alt="Нейтральный свет 4000 K" loading="lazy"><figcaption>4000 K</figcaption></figure>
-            <figure><img src="media/foto-L-living2-eve-6500.jpg" alt="Холодный свет 6500 K" loading="lazy"><figcaption>6500 K</figcaption></figure>
+            <figure><img src="media/foto-L-living2-eve-2700.jpg" alt="Warm light 2700 K" loading="lazy"><figcaption>2700 K</figcaption></figure>
+            <figure><img src="media/foto-L-living2-eve-4000.jpg" alt="Neutral light 4000 K" loading="lazy"><figcaption>4000 K</figcaption></figure>
+            <figure><img src="media/foto-L-living2-eve-6500.jpg" alt="Cool light 6500 K" loading="lazy"><figcaption>6500 K</figcaption></figure>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="sub">
-    <h3>Дом на участке — среди соседей</h3>
-    <figure class="wideshot"><img src="media/city-1.jpg" alt="Жилой дом на участке, фотореалистичный кадр" loading="lazy"><figcaption>Проект встаёт на участок среди соседних домов и улиц; здание можно обойти и заглянуть внутрь.</figcaption></figure>
+    <h3>A building on its site, among its neighbours</h3>
+    <figure class="wideshot"><img src="media/city-1.jpg" alt="Residential building on its site, photorealistic shot" loading="lazy"><figcaption>The project is placed on its plot among the surrounding buildings and streets; you can walk around it and look inside.</figcaption></figure>
   </div>
 </section>
 
 <section class="case in" id="three-d">
   <div class="head">
-    <div><p class="eyebrow">02 · 3D</p><h2>3D-модели и персонажи — <span class="gt">из картинки или описания</span></h2></div>
-    <p>Hopper делает 3D-модели с текстурами для брендов, игр, маркетплейсов и мерча: около миллиона треугольников из одной картинки. Студийная съёмка и анимация — там же.</p>
+    <div><p class="eyebrow">02 · 3D</p><h2>3D models and characters — <span class="gt">from an image or a description</span></h2></div>
+    <p>Hopper creates textured 3D models for brands, games, marketplaces and merch — around a million triangles from a single image. Studio shots and animation happen in the same place.</p>
   </div>
   <div class="models">
-    <figure><img src="media/r3d-statue-1.jpg" alt="Статуя с весами" loading="lazy"><figcaption><b>Статуя с весами.</b> ≈974 тыс. треугольников</figcaption></figure>
-    <figure><img src="media/r3d-orc-1.jpg" alt="Двухголовый орк" loading="lazy"><figcaption><b>Двухголовый орк.</b> ≈948 тыс. треугольников</figcaption></figure>
-    <figure><img src="media/r3d-statue-2.jpg" alt="Статуя, другой ракурс" loading="lazy"><figcaption>Статуя, другой ракурс</figcaption></figure>
-    <figure><img src="media/r3d-orc-2.jpg" alt="Орк, другой ракурс" loading="lazy"><figcaption>Орк, другой ракурс</figcaption></figure>
+    <figure><img src="media/r3d-statue-1.jpg" alt="Statue with scales" loading="lazy"><figcaption><b>Statue with scales.</b> ≈974 K triangles</figcaption></figure>
+    <figure><img src="media/r3d-orc-1.jpg" alt="Two-headed orc" loading="lazy"><figcaption><b>Two-headed orc.</b> ≈948 K triangles</figcaption></figure>
+    <figure><img src="media/r3d-statue-2.jpg" alt="Statue, another angle" loading="lazy"><figcaption>Statue, another angle</figcaption></figure>
+    <figure><img src="media/r3d-orc-2.jpg" alt="Orc, another angle" loading="lazy"><figcaption>Orc, another angle</figcaption></figure>
   </div>
   <div class="sub">
-    <h3>Персонажи, предметы, сувениры</h3>
+    <h3>Characters, objects, collectibles</h3>
     <div class="chars" id="chars"></div>
   </div>
   <div class="sub">
-    <h3>Мебель из одной фотографии</h3>
-    <p>Загружаешь фото вещи и вводишь её размеры — через 29–89 секунд в каталоге готовая 3D-модель: фасадом вперёд, точно в размер и разделённая на части, которые можно перекрасить.</p>
+    <h3>Furniture from a single photo</h3>
+    <p>Upload a photo of a piece and enter its size — 29–89 seconds later a 3D model is in the catalogue: facing forward, exactly to size and split into parts you can recolour.</p>
     <div class="furn" id="furn"></div>
-    <p class="credit">Исходные фото — музейные снимки в общественном достоянии (CC0, Wikimedia Commons). 3D-модели сделаны в Hopper.</p>
+    <p class="credit">Source photos are public-domain museum images (CC0, Wikimedia Commons). The 3D models were made in Hopper.</p>
   </div>
 </section>
 
 <section class="case in" id="motion">
   <div class="head">
-    <div><p class="eyebrow">03 · Моушн-дизайн</p><h2>Анимационный ролик <span class="gt">по описанию</span></h2></div>
-    <p>Пишешь сюжет — Hopper раскладывает его на сцены, рисует героя и оживляет каждый кадр. Герой и стиль остаются одинаковыми во всех сценах: аниме, мультфильм, 3D или «как в кино».</p>
+    <div><p class="eyebrow">03 · Motion design</p><h2>An animated video <span class="gt">from a description</span></h2></div>
+    <p>Write a story — Hopper breaks it into scenes, draws the character and brings every frame to life. The character and style stay consistent across scenes: anime, cartoon, 3D or cinematic.</p>
   </div>
   <div class="reels" id="reels"></div>
   <div class="sub">
-    <h3>Один герой — от первого кадра до последнего</h3>
+    <h3>One character, from the first frame to the last</h3>
     <div class="strips" id="strips"></div>
   </div>
   <div class="sub">
-    <h3>Моушн-графика: реклама, инфографика, интерфейсы</h3>
-    <p>Итоги года, рекламный ролик, экран приложения — из одного описания, в одном из двенадцати стилей. Экспорт в MP4, GIF, WebM, Lottie и After Effects.</p>
+    <h3>Motion graphics: ads, infographics, interfaces</h3>
+    <p>A year in review, an ad, an app screen — from one description, in one of twelve styles. Export to MP4, GIF, WebM, Lottie and After Effects.</p>
     <div class="gfx">
-      <figure><img src="media/looks.jpg" alt="Двенадцать стилей одной сцены" loading="lazy"><figcaption>12 стилей одной сцены</figcaption></figure>
-      <figure><img src="media/info-s4.jpg" alt="Инфографика: выручка по кварталам" loading="lazy"><figcaption>Инфографика</figcaption></figure>
-      <figure><img src="media/ui-0.8.jpg" alt="Анимация интерфейса приложения" loading="lazy"><figcaption>Интерфейс приложения</figcaption></figure>
+      <figure><img src="media/looks.jpg" alt="Twelve styles of one scene" loading="lazy"><figcaption>12 styles of one scene</figcaption></figure>
+      <figure><img src="media/info-s4.jpg" alt="Infographic: revenue by quarter" loading="lazy"><figcaption>Infographic</figcaption></figure>
+      <figure><img src="media/ui-0.8.jpg" alt="App interface animation" loading="lazy"><figcaption>App interface</figcaption></figure>
     </div>
   </div>
 </section>
@@ -367,28 +367,28 @@ footer a:hover { color: var(--ink); }
 <section class="how">
   <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="in">
-    <p class="eyebrow">Как работает Hopper</p>
-    <h2>Четыре шага <span class="gt">от идеи до результата</span></h2>
+    <p class="eyebrow">How Hopper works</p>
+    <h2>Four steps <span class="gt">from idea to result</span></h2>
     <div class="flow">
-      <div><i class="gt">01</i><b>Опишите задачу</b><span>Словами — по-русски, по-казахски или по-английски. Или загрузите фото, скан плана, картинку-образец.</span></div>
-      <div><i class="gt">02</i><b>Hopper создаёт</b><span>Интерьер, фотореалистичный кадр, 3D-модель или ролик — за секунды или минуты.</span></div>
-      <div><i class="gt">03</i><b>Доработайте</b><span>Попросите словами: «сделай светлее», «добавь двери» — или поправьте вручную в редакторе.</span></div>
-      <div><i class="gt">04</i><b>Заберите в работу</b><span>PDF, DXF, IFC, PNG, MP4, GIF, Lottie, After Effects — форматы, с которыми работают профессионалы.</span></div>
+      <div><i class="gt">01</i><b>Describe the task</b><span>In words — in English, Russian or Kazakh. Or upload a photo, a plan scan or a reference image.</span></div>
+      <div><i class="gt">02</i><b>Hopper creates</b><span>An interior, a photorealistic shot, a 3D model or a video — in seconds or minutes.</span></div>
+      <div><i class="gt">03</i><b>Refine</b><span>Ask in words — “make it brighter”, “add doors” — or edit by hand in the editor.</span></div>
+      <div><i class="gt">04</i><b>Take it to work</b><span>PDF, DXF, IFC, PNG, MP4, GIF, Lottie, After Effects — the formats professionals use.</span></div>
     </div>
   </div>
 </section>
 
 <section class="block in" id="about">
   <div class="about">
-    <div><p class="eyebrow">Обо мне</p><h2>Я создаю Hopper — <span class="gt">одно окно для всей креативной работы</span></h2></div>
+    <div><p class="eyebrow">About</p><h2>I’m building Hopper — <span class="gt">one window for all creative work</span></h2></div>
     <div class="txt">
-      <p>Меня зовут Маруа Макпыр. Hopper — моя платформа: в ней архитектурное бюро, 3D-студия и моушн-дизайнер работают в одном браузере, без набора отдельных программ.</p>
-      <p>Я веду продукт целиком — от идеи и выбора моделей до того, как результат выглядит в руках клиента. Модели работают на нашем собственном сервере, и я выбираю только те, чьи лицензии разрешают коммерческое использование по всему миру.</p>
+      <p>I’m Marua Makpyr. Hopper is my platform: an architecture studio, a 3D studio and a motion designer working in one browser, without a stack of separate tools.</p>
+      <p>I lead the product end to end — from the idea and the choice of AI models to how the result looks in the client’s hands. The models run on our own servers, and I only choose ones licensed for commercial use worldwide.</p>
       <div class="pillars">
-        <div><b>Всё в одном</b><span>Архитектура, 3D и анимация в одном окне вместо десятка программ.</span></div>
-        <div><b>Свои модели</b><span>Работают на нашем сервере, материалы клиентов не уходят в сторонние сервисы.</span></div>
-        <div><b>Чистые права</b><span>Только модели и ресурсы с лицензией на коммерческое использование.</span></div>
-        <div><b>Для профи</b><span>Результат в форматах для AutoCAD, BIM-программ и After Effects.</span></div>
+        <div><b>All in one</b><span>Architecture, 3D and animation in one window instead of a dozen tools.</span></div>
+        <div><b>Our own models</b><span>They run on our servers; client materials never go to third-party services.</span></div>
+        <div><b>Clean rights</b><span>Only models and assets licensed for commercial use.</span></div>
+        <div><b>Built for pros</b><span>Output in formats for AutoCAD, BIM tools and After Effects.</span></div>
       </div>
     </div>
   </div>
@@ -397,56 +397,56 @@ footer a:hover { color: var(--ink); }
 
 <footer>
   <div class="in">
-    <span><b style="color:var(--ink)">Hopper</b> · Маруа Макпыр · 2026</span>
-    <nav aria-label="Разделы в подвале"><a href="#works">Работы</a><a href="#architecture">Архитектура</a><a href="#three-d">3D</a><a href="#motion">Моушн</a><a href="#about">Обо мне</a></nav>
+    <span><b style="color:var(--ink)">Hopper</b> · Marua Makpyr · 2026</span>
+    <nav aria-label="Footer sections"><a href="#works">Work</a><a href="#architecture">Architecture</a><a href="#three-d">3D</a><a href="#motion">Motion</a><a href="#about">About</a></nav>
   </div>
 </footer>
 
-<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Просмотр работы">
-  <div class="lb-top"><span id="lbCount"></span><button type="button" id="lbClose">Закрыть ✕</button></div>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Work viewer">
+  <div class="lb-top"><span id="lbCount"></span><button type="button" id="lbClose">Close ✕</button></div>
   <div class="lb-stage" id="lbStage"></div>
-  <div><p class="lb-cap" id="lbCap"></p><div class="lb-nav"><button type="button" id="lbPrev">← Назад</button><button type="button" id="lbNext">Дальше →</button></div></div>
+  <div><p class="lb-cap" id="lbCap"></p><div class="lb-nav"><button type="button" id="lbPrev">← Back</button><button type="button" id="lbNext">Next →</button></div></div>
 </div>
 
 <script>
 (function () {
-  var A = 'Архитектура', D = '3D', M = 'Моушн';
+  var A = 'Architecture', D = '3D', M = 'Motion';
   var works = [
-    ['r3d-statue-1.jpg', D, 'Статуя с весами', '3D-модель из картинки · ≈974 тыс. треугольников'],
-    ['living.jpg', A, 'Гостиная', 'Интерьер, двусветное пространство'],
-    ['v-umbrella.mp4', M, 'Девочка с красным зонтом', 'Ролик по описанию'],
-    ['ch-bot-05.jpg', D, 'Персонаж', '3D-модель с текстурой'],
-    ['kitchen.jpg', A, 'Кухня-гостиная', 'Интерьер по плану'],
-    ['anime-0.45.jpg', M, 'Аниме: салют', 'Кадр ролика'],
-    ['r3d-orc-1.jpg', D, 'Двухголовый орк', '3D-модель из картинки · ≈948 тыс. треугольников'],
-    ['city-1.jpg', A, 'Дом на участке', 'Фотореалистичный кадр'],
-    ['eagle-0.45.jpg', M, 'Орёл в горах', 'Реалистичный ролик'],
-    ['ch-top-05.jpg', D, 'Пёсик', '3D-персонаж'],
-    ['bedroom_2.jpg', A, 'Спальня', 'Интерьер'],
-    ['v-fireworks.mp4', M, 'Салют над озером', 'Аниме-ролик'],
-    ['tr-09.jpg', D, 'Комод из фото', '1000 × 550 × 900 мм · 49 с'],
-    ['render.jpg', A, 'Загородный дом', 'Рендер'],
-    ['astro-0.8.jpg', M, 'Космонавт и цветок', 'Кадр ролика'],
-    ['ch-top-02.jpg', D, 'Персонаж', '3D-модель'],
-    ['balcony.jpg', A, 'Лоджия', 'Интерьер'],
-    ['coat-0.45.jpg', M, 'Осенний парк', 'Ролик «как в кино»'],
-    ['ch-bot-11.jpg', D, 'Лесной персонаж', '3D-модель'],
-    ['interior.jpg', A, 'Столовая', 'Интерьер'],
-    ['looks.jpg', M, '12 стилей одной сцены', 'Моушн-графика'],
-    ['ch-top-07.jpg', D, 'Персонаж', '3D-модель'],
-    ['bedroom_3.jpg', A, 'Спальня вечером', 'Интерьер'],
-    ['info-s4.jpg', M, 'Выручка по кварталам', 'Инфографика'],
-    ['ch-bot-07.jpg', D, 'Предмет', '3D-модель'],
-    ['foto-g-p1-kitchen-0-evening.jpg', A, 'Кухня вечером', '«Фото»: Blender на видеокарте'],
-    ['ui-0.8.jpg', M, 'Экран приложения', 'Анимация интерфейса'],
-    ['ch-top-09.jpg', D, 'Персонаж', '3D-модель'],
-    ['bedroom_1.jpg', A, 'Спальня, вариант', 'Интерьер'],
-    ['v-plane.mp4', M, 'Мальчик и вертолётик', 'Ролик из нескольких сцен'],
-    ['r3d-statue-2.jpg', D, 'Статуя, другой ракурс', '3D-модель'],
-    ['ch-bot-03.jpg', D, 'Персонаж', '3D-модель'],
-    ['ch-top-11.jpg', D, 'Объятия', '3D-модель'],
-    ['ch-bot-12.jpg', D, 'Персонаж', '3D-модель'],
-    ['tr-42.jpg', D, 'Банкетка из фото', '1600 × 700 × 1000 мм · 30 с']
+    ['r3d-statue-1.jpg', D, 'Statue with scales', '3D model from an image · ≈974 K triangles'],
+    ['living.jpg', A, 'Living room', 'Interior, double-height space'],
+    ['v-umbrella.mp4', M, 'Girl with a red umbrella', 'Video from a description'],
+    ['ch-bot-05.jpg', D, 'Character', 'Textured 3D model'],
+    ['kitchen.jpg', A, 'Kitchen and living room', 'Interior from a plan'],
+    ['anime-0.45.jpg', M, 'Anime: fireworks', 'Video frame'],
+    ['r3d-orc-1.jpg', D, 'Two-headed orc', '3D model from an image · ≈948 K triangles'],
+    ['city-1.jpg', A, 'Building on its site', 'Photorealistic shot'],
+    ['eagle-0.45.jpg', M, 'Eagle in the mountains', 'Realistic video'],
+    ['ch-top-05.jpg', D, 'Puppy', '3D character'],
+    ['bedroom_2.jpg', A, 'Bedroom', 'Interior'],
+    ['v-fireworks.mp4', M, 'Fireworks over a lake', 'Anime video'],
+    ['tr-09.jpg', D, 'Chest of drawers from a photo', '1000 × 550 × 900 mm · 49 s'],
+    ['render.jpg', A, 'Country house', 'Render'],
+    ['astro-0.8.jpg', M, 'Astronaut and a flower', 'Video frame'],
+    ['ch-top-02.jpg', D, 'Character', '3D model'],
+    ['balcony.jpg', A, 'Loggia', 'Interior'],
+    ['coat-0.45.jpg', M, 'Autumn park', 'Cinematic video'],
+    ['ch-bot-11.jpg', D, 'Forest character', '3D model'],
+    ['interior.jpg', A, 'Dining room', 'Interior'],
+    ['looks.jpg', M, '12 styles of one scene', 'Motion graphics'],
+    ['ch-top-07.jpg', D, 'Character', '3D model'],
+    ['bedroom_3.jpg', A, 'Bedroom in the evening', 'Interior'],
+    ['info-s4.jpg', M, 'Revenue by quarter', 'Infographic'],
+    ['ch-bot-07.jpg', D, 'Object', '3D model'],
+    ['foto-g-p1-kitchen-0-evening.jpg', A, 'Kitchen in the evening', '“Photo”: Blender on a GPU'],
+    ['ui-0.8.jpg', M, 'App screen', 'Interface animation'],
+    ['ch-top-09.jpg', D, 'Character', '3D model'],
+    ['bedroom_1.jpg', A, 'Bedroom, alternative', 'Interior'],
+    ['v-plane.mp4', M, 'Boy and a paper helicopter', 'Multi-scene video'],
+    ['r3d-statue-2.jpg', D, 'Statue, another angle', '3D model'],
+    ['ch-bot-03.jpg', D, 'Character', '3D model'],
+    ['ch-top-11.jpg', D, 'Hug', '3D model'],
+    ['ch-bot-12.jpg', D, 'Character', '3D model'],
+    ['tr-42.jpg', D, 'Settee from a photo', '1600 × 700 × 1000 mm · 30 s']
   ];
   var isVid = function (f) { return /\.mp4$/.test(f); };
   var media = function (f) {
@@ -459,17 +459,17 @@ footer a:hover { color: var(--ink); }
   var h = strip.map(function (f) { return '<div>' + media(f) + '</div>'; }).join('');
   document.getElementById('track').innerHTML = h + h;
 
-  var grid = document.getElementById('grid'), filters = document.getElementById('filters'), cur = 'Все', shown = [];
-  var cats = ['Все', A, D, M];
+  var grid = document.getElementById('grid'), filters = document.getElementById('filters'), cur = 'All', shown = [];
+  var cats = ['All', A, D, M];
   filters.innerHTML = cats.map(function (c, i) {
-    var n = c === 'Все' ? works.length : works.filter(function (w) { return w[1] === c; }).length;
+    var n = c === 'All' ? works.length : works.filter(function (w) { return w[1] === c; }).length;
     return '<button type="button" id="f-' + i + '" aria-pressed="' + (c === cur) + '" data-c="' + c + '">' + c + '<small>' + n + '</small></button>';
   }).join('');
   function render() {
-    shown = works.filter(function (w) { return cur === 'Все' || w[1] === cur; });
+    shown = works.filter(function (w) { return cur === 'All' || w[1] === cur; });
     grid.innerHTML = shown.map(function (w, i) {
-      return '<button type="button" class="work" data-i="' + i + '" aria-label="' + w[2] + ' — открыть крупно">' + media(w[0]) +
-        (isVid(w[0]) ? '<span class="play">ВИДЕО</span>' : '') + '<span class="tag">' + w[2] + ' · ' + w[3] + '</span></button>';
+      return '<button type="button" class="work" data-i="' + i + '" aria-label="' + w[2] + ' — open full screen">' + media(w[0]) +
+        (isVid(w[0]) ? '<span class="play">VIDEO</span>' : '') + '<span class="tag">' + w[2] + ' · ' + w[3] + '</span></button>';
     }).join('');
   }
   filters.addEventListener('click', function (e) {
@@ -503,24 +503,24 @@ footer a:hover { color: var(--ink); }
   lb.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1)); sx = null; });
 
   var chars = ['top-05','bot-05','top-02','bot-11','top-07','bot-07','top-09','bot-03','top-11','bot-12','top-01','bot-08','top-06','bot-01','top-03','bot-09','top-12','bot-06','top-08','bot-04','top-04','bot-10','top-10'];
-  document.getElementById('chars').innerHTML = chars.map(function (c) { return '<figure><img src="media/ch-' + c + '.jpg" alt="3D-персонаж или предмет" loading="lazy"></figure>'; }).join('');
-  var furn = [['09','Комод выпуклый','1000 × 550 × 900 мм · 49 с'],['03','Кресло, красное сиденье','700 × 600 × 1050 мм'],['42','Банкетка, гобелен','1600 × 700 × 1000 мм · 30 с'],
-              ['37','Диван ампир','2000 × 700 × 900 мм · 29 с'],['13','Витрина','2000 × 450 × 1600 мм · 78 с'],['27','Рабочий стул','500 × 550 × 900 мм · 29 с']];
+  document.getElementById('chars').innerHTML = chars.map(function (c) { return '<figure><img src="media/ch-' + c + '.jpg" alt="3D character or object" loading="lazy"></figure>'; }).join('');
+  var furn = [['09','Serpentine chest of drawers','1000 × 550 × 900 mm · 49 s'],['03','Armchair, red seat','700 × 600 × 1050 mm'],['42','Tapestry settee','1600 × 700 × 1000 mm · 30 s'],
+              ['37','Empire sofa','2000 × 700 × 900 mm · 29 s'],['13','Display cabinet','2000 × 450 × 1600 mm · 78 s'],['27','Desk chair','500 × 550 × 900 mm · 29 s']];
   document.getElementById('furn').innerHTML = furn.map(function (f) {
-    return '<figure><div class="duo"><img src="media/tp-' + f[0] + '.jpg" alt="Фото: ' + f[1] + '" loading="lazy"><span class="arr gt">→</span><img src="media/tr-' + f[0] + '.jpg" alt="3D-модель: ' + f[1] + '" loading="lazy"></div><figcaption><b>' + f[1] + '.</b> ' + f[2] + '</figcaption></figure>';
+    return '<figure><div class="duo"><img src="media/tp-' + f[0] + '.jpg" alt="Photo: ' + f[1] + '" loading="lazy"><span class="arr gt">→</span><img src="media/tr-' + f[0] + '.jpg" alt="3D model: ' + f[1] + '" loading="lazy"></div><figcaption><b>' + f[1] + '.</b> ' + f[2] + '</figcaption></figure>';
   }).join('');
-  var reels = [['fireworks','Аниме: салют над озером'],['umbrella','Девочка с красным зонтом'],['plane','Мальчик и вертолётик · сцена 1'],['park','Сцена 2: запуск'],['park2','Сцена 3: в небо']];
+  var reels = [['fireworks','Anime: fireworks over a lake'],['umbrella','Girl with a red umbrella'],['plane','Boy and a paper helicopter · scene 1'],['park','Scene 2: launch'],['park2','Scene 3: into the sky']];
   document.getElementById('reels').innerHTML = reels.map(function (r) {
     return '<figure><video src="media/v-' + r[0] + '.mp4" poster="media/v-' + r[0] + '-poster.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption>' + r[1] + '</figcaption></figure>';
   }).join('');
-  var strips = [['anime','Аниме'],['astro','Космонавт и цветок'],['coat','«Как в кино»: осенний парк'],['eagle','Реалистичный: орёл в горах']];
+  var strips = [['anime','Anime'],['astro','Astronaut and a flower'],['coat','Cinematic: autumn park'],['eagle','Realistic: eagle in the mountains']];
   document.getElementById('strips').innerHTML = strips.map(function (s) {
-    return '<figure><div class="strip">' + ['0.12','0.45','0.8'].map(function (t) { return '<img src="media/' + s[0] + '-' + t + '.jpg" alt="' + s[1] + ', кадр" loading="lazy">'; }).join('') + '</div><figcaption>' + s[1] + ' · начало, середина, финал ролика</figcaption></figure>';
+    return '<figure><div class="strip">' + ['0.12','0.45','0.8'].map(function (t) { return '<img src="media/' + s[0] + '-' + t + '.jpg" alt="' + s[1] + ', frame" loading="lazy">'; }).join('') + '</div><figcaption>' + s[1] + ' · beginning, middle and end of the video</figcaption></figure>';
   }).join('');
 
-  var names = {'p2-living-0': 'Гостиная', 'p1-kitchen-0': 'Кухня', 'p5-living-0': 'Гостиная 2'}, room = 'p1-kitchen-0', time = 'evening';
+  var names = {'p2-living-0': 'Living room', 'p1-kitchen-0': 'Kitchen', 'p5-living-0': 'Living room 2'}, room = 'p1-kitchen-0', time = 'evening';
   var limg = document.getElementById('lightImg'), lcap = document.getElementById('lightCap');
-  function paint() { limg.src = 'media/foto-g-' + room + '-' + time + '.jpg'; limg.alt = names[room] + ', ' + (time === 'day' ? 'дневной свет' : 'вечерний свет'); lcap.textContent = names[room] + ' · ' + (time === 'day' ? 'день' : 'вечер'); }
+  function paint() { limg.src = 'media/foto-g-' + room + '-' + time + '.jpg'; limg.alt = names[room] + ', ' + (time === 'day' ? 'daylight' : 'evening light'); lcap.textContent = names[room] + ' · ' + (time === 'day' ? 'day' : 'evening'); }
   function wire(id, set) {
     var seg = document.getElementById(id);
     seg.addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return;
@@ -539,7 +539,7 @@ footer a:hover { color: var(--ink); }
 </script>
 
 <script type="module">
-// Живая 3D-модель на обложке: если WebGL недоступен — остаётся картинка.
+// Live 3D model in the hero; without WebGL the still image stays.
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -571,12 +571,12 @@ if (renderer) {
   }
   function load(name) {
     if (cache[name]) { place(name); return; }
-    note.textContent = 'Загружаю модель…';
+    note.textContent = 'Loading the model…';
     loader.load('media/' + name + '.glb', (g) => {
       const m = g.scene, b = new THREE.Box3().setFromObject(m), size = b.getSize(new THREE.Vector3()), c = b.getCenter(new THREE.Vector3());
       m.position.sub(c); const k = 2 / Math.max(size.x, size.y, size.z); const piv = new THREE.Group(); piv.add(m); piv.scale.setScalar(k);
-      cache[name] = piv; place(name); note.textContent = '3D-модель из Hopper · покрутите мышью';
-    }, undefined, () => { note.textContent = '3D-модель из Hopper'; });
+      cache[name] = piv; place(name); note.textContent = 'A 3D model made in Hopper · drag to rotate';
+    }, undefined, () => { note.textContent = 'A 3D model made in Hopper'; });
   }
   fit(); window.addEventListener('resize', fit);
   renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, cam); });
