@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Портфолио платформы Hopper: интерьеры и рендеры по плану, 3D-персонажи, мебель из фото, ролики и моушн-графика.">
+<meta property="og:title" content="Hopper — портфолио">
+<meta property="og:description" content="ИИ-платформа, где идея становится чертежом, 3D и роликом.">
+<meta property="og:image" content="media/kitchen.jpg">
+<link rel="icon" href="media/logo.svg" type="image/svg+xml">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<title>Hopper Портфолио</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: сайт-портфолио — закреплённое меню, тёмная обложка с бегущей лентой работ, галерея с фильтром и просмотром, затем разделы-кейсы по направлениям, «Обо мне» и подвал. */
+:root {
+  --paper: #F6F1E9; --card: #FFFDF9; --ink: #14171A; --muted: #5E615F; --line: #E4DDD1;
+  --green: #1E3B33; --green2: #2C5247; --on-green: #F6F1E9; --on-green-muted: #B9C9C2;
+  --violet: #8B5CF6; --pink: #EC4899; --sun: #F5B700;
+  --nav-bg: rgba(246, 241, 233, .86); --shade: rgba(10, 18, 15, .92);
+  --display: "Montserrat", "Arial Black", system-ui, sans-serif;
+  --body: "Onest", "Inter", system-ui, sans-serif;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #101a17; --card: #17231f; --ink: #EEF2EF; --muted: #A3B2AC; --line: #26352f;
+  --green: #0b1512; --green2: #1b2c26; --violet: #a78bfa; --pink: #f472b6;
+  --nav-bg: rgba(16, 26, 23, .86); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #101a17; --card: #17231f; --ink: #EEF2EF; --muted: #A3B2AC; --line: #26352f;
+  --green: #0b1512; --green2: #1b2c26; --violet: #a78bfa; --pink: #f472b6;
+  --nav-bg: rgba(16, 26, 23, .86); color-scheme: dark }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--nav-bg); }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+.in { max-width: 1240px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+p { margin: 0; }
+.eyebrow { font: 700 12px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--violet); }
+.grad { background: linear-gradient(90deg, var(--violet), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
+
+/* Меню */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--nav-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.nav .in { display: flex; align-items: center; gap: 24px; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font: 800 19px/1 var(--display); text-decoration: none; }
+.brand img { width: 30px; height: 30px; }
+.links { display: flex; gap: 4px; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+.links::-webkit-scrollbar { display: none; }
+.links a { text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 12px; border-radius: 999px; white-space: nowrap; color: var(--muted); }
+.links a:hover { color: var(--ink); }
+.links a.on { background: var(--green); color: var(--on-green); }
+@media (max-width: 720px) { .brand span { display: none; } .nav .in { gap: 8px; } .links a { padding: 8px 10px; font-size: 13px; } }
+
+/* Обложка */
+.cover { background: var(--green); color: var(--on-green); padding-block: 72px 0; overflow: hidden; }
+.hero { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 48px; align-items: end; }
+.hero h1 { font-size: clamp(38px, 6.2vw, 80px); line-height: 1.02; font-weight: 800; margin-top: 16px; }
+.hero .lead { font-size: 18px; color: var(--on-green-muted); }
+.hero .lead b { color: var(--on-green); font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font: 600 15px var(--body); text-decoration: none; border: 1px solid transparent; }
+.btn.primary { background: var(--on-green); color: #1E3B33; }
+.btn.ghost { border-color: var(--green2); color: var(--on-green); }
+.reel { margin-top: 56px; display: flex; flex-direction: column; gap: 12px; padding-bottom: 56px; }
+.track { display: flex; gap: 12px; width: max-content; animation: slide 70s linear infinite; }
+.track.rev { animation-direction: reverse; animation-duration: 85s; }
+.track > * { height: 190px; border-radius: var(--r); overflow: hidden; flex: none; background: var(--green2); }
+.track img, .track video { height: 100%; width: auto; object-fit: cover; }
+@keyframes slide { to { transform: translateX(-50%); } }
+.cover:hover .track { animation-play-state: paused; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding-block: 0 64px; }
+.fact { border-top: 1px solid var(--green2); padding-top: 14px; }
+.fact b { display: block; font: 800 30px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.fact span { font-size: 14px; color: var(--on-green-muted); }
+
+/* Работы: фильтр и галерея */
+section.block { padding-block: 96px 8px; }
+.head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 40px; align-items: end; margin-bottom: 32px; }
+.head h2 { font-size: clamp(28px, 3.6vw, 46px); line-height: 1.08; font-weight: 800; margin-top: 12px; }
+.head p { color: var(--muted); font-size: 17px; max-width: 60ch; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.filters button { font: 500 14px var(--body); padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: var(--on-green); }
+.filters small { color: inherit; opacity: .6; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.works { columns: 4 220px; column-gap: 14px; }
+.work { break-inside: avoid; margin: 0 0 14px; position: relative; border-radius: var(--r); overflow: hidden; background: var(--card); cursor: zoom-in; display: block; width: 100%; padding: 0; border: 0; text-align: left; color: inherit; }
+.work img, .work video { width: 100%; height: auto; transition: transform .5s ease; }
+.work:hover img, .work:hover video { transform: scale(1.03); }
+.work .tag { position: absolute; left: 10px; bottom: 10px; font: 600 12px var(--body); padding: 5px 10px; border-radius: 999px; background: rgba(20, 23, 26, .72); color: #fff; opacity: 0; transform: translateY(4px); transition: .25s; }
+.work:hover .tag, .work:focus-visible .tag { opacity: 1; transform: none; }
+.work .play { position: absolute; top: 10px; right: 10px; font: 700 11px var(--display); letter-spacing: .08em; padding: 5px 9px; border-radius: 999px; background: var(--pink); color: #fff; }
+
+/* Просмотр */
+.lb { position: fixed; inset: 0; z-index: 50; background: var(--shade); display: grid; grid-template-rows: auto 1fr auto; padding: calc(12px + env(safe-area-inset-top, 0px)) max(12px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); color: #fff; }
+.lb[hidden] { display: none; }
+.lb-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; color: #c9d3cf; }
+.lb-stage { display: flex; align-items: center; justify-content: center; min-height: 0; padding: 12px 0; }
+.lb-stage img, .lb-stage video { max-height: 100%; max-width: 100%; object-fit: contain; border-radius: 10px; }
+.lb-cap { text-align: center; font-size: 15px; }
+.lb-cap small { display: block; color: #a9b8b2; font-size: 13px; margin-top: 2px; }
+.lb button { font: 600 14px var(--body); background: rgba(255, 255, 255, .1); color: #fff; border: 0; border-radius: 999px; padding: 10px 16px; cursor: pointer; }
+.lb-nav { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+
+/* Кейсы */
+.case { padding-block: 96px 8px; }
+.sub { display: flex; flex-direction: column; gap: 16px; margin-top: 56px; }
+.sub h3 { font-size: 21px; font-weight: 700; }
+.sub > p { color: var(--muted); max-width: 70ch; }
+figure { margin: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+figure img, figure video { width: 100%; border-radius: var(--r); background: var(--card); }
+figcaption { font-size: 13px; color: var(--muted); }
+figcaption b { color: var(--ink); font-weight: 600; }
+.steps3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.steps3 img { aspect-ratio: 4 / 5; object-fit: cover; }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.pair img { aspect-ratio: 4 / 3; object-fit: cover; }
+.light { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 20px; align-items: start; }
+.light .stage img { aspect-ratio: 4 / 3; object-fit: cover; }
+.controls { display: flex; flex-direction: column; gap: 18px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.seg button { font: 500 14px var(--body); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--green); color: var(--on-green); border-color: var(--green); }
+.label { font: 700 11px/1 var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.kelvin { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+.kelvin img { aspect-ratio: 4 / 3; object-fit: cover; }
+.city { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 12px; }
+.city .big img { height: 100%; object-fit: cover; }
+.city .side { display: grid; grid-template-rows: 1fr 1fr; gap: 12px; }
+.city .side img { height: 100%; object-fit: cover; aspect-ratio: 16 / 10; }
+.furn { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 16px; }
+.duo { display: grid; grid-template-columns: minmax(0, 1fr) 22px minmax(0, 1fr); align-items: center; gap: 6px; }
+.duo img { aspect-ratio: 1; object-fit: cover; border-radius: 10px; background: #fff; }
+.duo .arr { text-align: center; color: var(--violet); font-weight: 700; }
+.credit { font-size: 12px; color: var(--muted); }
+.reels { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.reels video { aspect-ratio: 9 / 16; object-fit: cover; border-radius: 18px; background: #000; }
+.strips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.strip img { aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; }
+.gfx { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.gfx img { aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); }
+
+/* Как работает, обо мне */
+.how { background: var(--green); color: var(--on-green); margin-top: 96px; padding-block: 80px; }
+.how h2 { font-size: clamp(26px, 3.2vw, 42px); font-weight: 800; margin-top: 12px; }
+.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+.flow div { background: var(--green2); border-radius: var(--r); padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+.flow b { font: 700 17px var(--display); }
+.flow span { font-size: 14px; color: var(--on-green-muted); }
+.flow i { font: 800 13px var(--display); font-style: normal; color: var(--sun); }
+.about { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px; align-items: start; }
+.about h2 { font-size: clamp(28px, 3.6vw, 46px); font-weight: 800; line-height: 1.08; margin-top: 12px; }
+.about .txt { display: flex; flex-direction: column; gap: 14px; font-size: 17px; }
+.about .txt p { max-width: 62ch; }
+.pillars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 10px; }
+.pillars div { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; }
+.pillars b { display: block; font: 700 15px var(--display); margin-bottom: 4px; }
+.pillars span { font-size: 14px; color: var(--muted); }
+footer { margin-top: 96px; border-top: 1px solid var(--line); }
+footer .in { padding-block: 32px 48px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
+footer nav { display: flex; gap: 16px; flex-wrap: wrap; }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--ink); }
+
+@media (max-width: 900px) {
+  .hero, .head, .light, .city, .about { grid-template-columns: minmax(0, 1fr); }
+  .facts, .flow, .gfx { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .reels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .furn { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strips { grid-template-columns: minmax(0, 1fr); }
+  .track > * { height: 140px; }
+}
+@media (max-width: 560px) {
+  .steps3, .pair, .furn, .pillars { grid-template-columns: minmax(0, 1fr); }
+  .reels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .works { columns: 2 140px; column-gap: 10px; }
+  .work { margin-bottom: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .track { animation: none; }
+  .work img, .work video { transition: none; }
+}
+</style>
+
+</head>
+<body>
+<header class="nav">
+  <div class="in">
+    <a class="brand" href="#top"><img src="media/logo.svg" alt="" width="30" height="30"><span>Hopper</span></a>
+    <nav class="links" aria-label="Разделы">
+      <a href="#works">Работы</a>
+      <a href="#architecture">Архитектура</a>
+      <a href="#three-d">3D</a>
+      <a href="#motion">Моушн</a>
+      <a href="#about">Обо мне</a>
+    </nav>
+  </div>
+</header>
+
+<section class="cover" id="top">
+  <div class="in">
+    <div class="hero">
+      <div>
+        <p class="eyebrow" style="color:var(--sun)">Портфолио · Маруа Макпыр</p>
+        <h1>Hopper — ИИ-платформа, где идея становится <span class="grad">чертежом, 3D и роликом</span></h1>
+      </div>
+      <div>
+        <p class="lead">Hopper — моя платформа. Описываешь задачу словами или загружаешь фото, и <b>Hopper делает чертёж, интерьер, фотореалистичный кадр, 3D-модель или анимационный ролик</b>. Всё на этом сайте сгенерировано в Hopper.</p>
+        <div class="cta"><a class="btn primary" href="#works">Смотреть работы</a><a class="btn ghost" href="#about">О платформе</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="reel" aria-hidden="true">
+    <div class="track" id="trackA"></div>
+    <div class="track rev" id="trackB"></div>
+  </div>
+  <div class="in">
+    <div class="facts">
+      <div class="fact"><b>3</b><span>направления уже работают: Архитектура, 3D, Моушн-дизайн</span></div>
+      <div class="fact"><b>29–89 с</b><span>мебель из одной фотографии — в 3D-модель точных размеров</span></div>
+      <div class="fact"><b>2700–6500 K</b><span>тёплый или холодный свет в фотореалистичном кадре квартиры</span></div>
+      <div class="fact"><b>12</b><span>стилей оформления моушн-графики, правки словами</span></div>
+    </div>
+  </div>
+</section>
+
+<main>
+<section class="block in" id="works">
+  <div class="head">
+    <div><p class="eyebrow">Работы</p><h2>Избранное из Hopper</h2></div>
+    <p>Интерьеры, рендеры по плану, 3D-персонажи и предметы, ролики и моушн-графика. Нажмите на работу, чтобы открыть её крупно; стрелки листают дальше.</p>
+  </div>
+  <div class="filters" id="filters" role="group" aria-label="Фильтр работ"></div>
+  <div class="works" id="grid"></div>
+</section>
+
+<section class="case in" id="architecture">
+  <div class="head">
+    <div><p class="eyebrow">01 · Архитектура и интерьер</p><h2>От концепции до рендера — без CAD и недель работы</h2></div>
+    <p>Я строила Hopper так, чтобы весь путь проекта жил в одном месте: чертёж → интерьер → рендер. Каждый следующий шаг берёт результат предыдущего, а правки делаются словами: «добавь окно», «сделай светлее».</p>
+  </div>
+  <div class="steps3">
+    <figure><img src="media/drawings.jpg" alt="Чертёж в 3D-виде" loading="lazy"><figcaption><b>Чертёж.</b> Фото или скан плана превращается в редактируемый чертёж с 3D-видом.</figcaption></figure>
+    <figure><img src="media/interior.jpg" alt="Интерьер столовой" loading="lazy"><figcaption><b>Интерьер.</b> Дизайн помещений по плану: стиль, материалы, мебель, несколько вариантов.</figcaption></figure>
+    <figure><img src="media/render.jpg" alt="Рендер дома" loading="lazy"><figcaption><b>Рендер.</b> Фотореалистичные кадры для презентации и продаж.</figcaption></figure>
+  </div>
+  <div class="sub">
+    <h3>План из фото — за минуту, а не за день</h3>
+    <p>Hopper распознаёт стены, двери, окна и подписи комнат на фото или скане планировки, собирает из них чертёж и сразу показывает квартиру в объёме.</p>
+    <div class="pair">
+      <figure><img src="media/plan-above.jpg" alt="План квартиры сверху" loading="lazy"><figcaption>Вид сверху с мебелью</figcaption></figure>
+      <figure><img src="media/plan-3d.jpg" alt="Квартира в изометрии" loading="lazy"><figcaption>Тот же план в 3D</figcaption></figure>
+    </div>
+  </div>
+  <div class="sub">
+    <h3>«Фото»: квартира по плану, снятая при дневном и вечернем свете</h3>
+    <p>Hopper расставляет мебель по плану и снимает квартиру в Blender на видеокарте нашего сервера. Свет можно менять: день или вечер, тёплые 2700 K или холодные 6500 K.</p>
+    <div class="light">
+      <figure class="stage"><img id="lightImg" src="media/foto-g-p1-kitchen-0-day.jpg" alt="Кухня, дневной свет"><figcaption id="lightCap">Кухня · день</figcaption></figure>
+      <div class="controls">
+        <div><p class="label">Комната</p><div class="seg" id="roomSeg">
+          <button type="button" id="r-k" aria-pressed="true" data-v="p1-kitchen-0">Кухня</button>
+          <button type="button" id="r-p2" aria-pressed="false" data-v="p2-living-0">Гостиная</button>
+          <button type="button" id="r-p5" aria-pressed="false" data-v="p5-living-0">Гостиная 2</button>
+        </div></div>
+        <div><p class="label">Свет</p><div class="seg" id="timeSeg">
+          <button type="button" id="t-day" aria-pressed="true" data-v="day">День</button>
+          <button type="button" id="t-eve" aria-pressed="false" data-v="evening">Вечер</button>
+        </div></div>
+        <div><p class="label">Цвет света вечером</p>
+          <div class="kelvin">
+            <figure><img src="media/foto-L-living2-eve-2700.jpg" alt="Тёплый свет 2700 K" loading="lazy"><figcaption>2700 K</figcaption></figure>
+            <figure><img src="media/foto-L-living2-eve-4000.jpg" alt="Нейтральный свет 4000 K" loading="lazy"><figcaption>4000 K</figcaption></figure>
+            <figure><img src="media/foto-L-living2-eve-6500.jpg" alt="Холодный свет 6500 K" loading="lazy"><figcaption>6500 K</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sub">
+    <h3>Дом на участке — в 3D, среди соседей</h3>
+    <p>Проект встаёт на участок среди соседних домов и улиц. Здание можно обойти, заглянуть внутрь и пройтись по квартире.</p>
+    <div class="city">
+      <figure class="big"><img src="media/city-1.jpg" alt="Жилой дом, фотореалистичный кадр" loading="lazy"></figure>
+      <div class="side">
+        <figure><img src="media/city-2.jpg" alt="Квартал в 3D" loading="lazy"></figure>
+        <figure><img src="media/city-5.jpg" alt="Дом в разрезе с планом этажа" loading="lazy"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case in" id="three-d">
+  <div class="head">
+    <div><p class="eyebrow">02 · 3D</p><h2>Персонажи, предметы, сувениры — из картинки или описания</h2></div>
+    <p>Hopper делает 3D-модели с текстурами для брендов, игр, маркетплейсов и мерча. Студийная съёмка, анимация и целые сцены собираются там же, без многочасового моделирования.</p>
+  </div>
+  <div class="sub" style="margin-top:0">
+    <h3>Мебель из одной фотографии</h3>
+    <p>Загружаешь фото вещи и вводишь её размеры — через 29–89 секунд в каталоге готовая 3D-модель: фасадом вперёд, точно в размер и разделённая на части, которые можно перекрасить. Модель сразу встаёт в интерьер и в кадр «Фото».</p>
+    <div class="furn" id="furn"></div>
+    <p class="credit">Исходные фото — музейные снимки в общественном достоянии (CC0, Wikimedia Commons). 3D-модели сделаны в Hopper.</p>
+  </div>
+</section>
+
+<section class="case in" id="motion">
+  <div class="head">
+    <div><p class="eyebrow">03 · Моушн-дизайн</p><h2>Анимационный ролик по описанию — за минуты</h2></div>
+    <p>Пишешь сюжет — Hopper раскладывает его на сцены, рисует героя и оживляет каждый кадр. Герой и стиль остаются одинаковыми во всех сценах: аниме, мультфильм, 3D или «как в кино».</p>
+  </div>
+  <div class="reels" id="reels"></div>
+  <div class="sub">
+    <h3>Один герой — от первого кадра до последнего</h3>
+    <div class="strips" id="strips"></div>
+  </div>
+  <div class="sub">
+    <h3>Моушн-графика: реклама, инфографика, интерфейсы, типографика</h3>
+    <p>Итоги года, рекламный ролик, анимация логотипа, экран приложения — из одного описания, в одном из двенадцати стилей. Правки словами: «сделай фон тёмным», «замени заголовок». Экспорт в MP4, GIF, WebM, Lottie и After Effects.</p>
+    <div class="gfx">
+      <figure><img src="media/looks.jpg" alt="Двенадцать стилей оформления" loading="lazy"><figcaption>12 стилей одной сцены</figcaption></figure>
+      <figure><img src="media/typography.jpg" alt="Кинетическая типографика" loading="lazy"><figcaption>Типографика</figcaption></figure>
+      <figure><img src="media/info-s4.jpg" alt="Инфографика: выручка по кварталам" loading="lazy"><figcaption>Инфографика</figcaption></figure>
+      <figure><img src="media/ui-0.8.jpg" alt="Анимация интерфейса приложения" loading="lazy"><figcaption>Интерфейс приложения</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="in">
+    <p class="eyebrow" style="color:var(--sun)">Как работает Hopper</p>
+    <h2>Четыре шага от идеи до результата</h2>
+    <div class="flow">
+      <div><i>1</i><b>Опишите задачу</b><span>Словами — по-русски, по-казахски или по-английски. Или загрузите фото, скан плана, картинку-образец.</span></div>
+      <div><i>2</i><b>Hopper создаёт</b><span>Чертёж, интерьер, фотореалистичный кадр, 3D-модель или ролик — за секунды или минуты.</span></div>
+      <div><i>3</i><b>Доработайте</b><span>Попросите словами: «сделай светлее», «добавь двери» — или поправьте вручную в редакторе.</span></div>
+      <div><i>4</i><b>Заберите в работу</b><span>PDF, DXF, IFC, PNG, MP4, GIF, Lottie, After Effects — форматы, с которыми работают профессионалы.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block in" id="about">
+  <div class="about">
+    <div><p class="eyebrow">Обо мне</p><h2>Я создаю Hopper — одно окно для всей креативной работы</h2></div>
+    <div class="txt">
+      <p>Меня зовут Маруа Макпыр. Hopper — моя платформа: в ней архитектурное бюро, 3D-студия и моушн-дизайнер работают в одном браузере, без набора отдельных программ.</p>
+      <p>Я веду продукт целиком — от идеи и выбора моделей до того, как результат выглядит в руках клиента. Модели работают на нашем собственном сервере, и я выбираю только те, чьи лицензии разрешают коммерческое использование по всему миру.</p>
+      <div class="pillars">
+        <div><b>Всё в одном</b><span>Архитектура, 3D и анимация в одном окне вместо десятка программ.</span></div>
+        <div><b>Свои модели</b><span>Работают на нашем сервере, материалы клиентов не уходят в сторонние сервисы.</span></div>
+        <div><b>Чистые права</b><span>Только модели и ресурсы с лицензией на коммерческое использование.</span></div>
+        <div><b>Для профи</b><span>Результат в форматах, которые открываются в AutoCAD, BIM-программах и After Effects.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="in">
+    <span><b style="color:var(--ink)">Hopper</b> · Маруа Макпыр · 2026</span>
+    <nav aria-label="Разделы в подвале"><a href="#works">Работы</a><a href="#architecture">Архитектура</a><a href="#three-d">3D</a><a href="#motion">Моушн</a><a href="#about">Обо мне</a></nav>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Просмотр работы">
+  <div class="lb-top"><span id="lbCount"></span><button type="button" id="lbClose">Закрыть ✕</button></div>
+  <div class="lb-stage" id="lbStage"></div>
+  <div><p class="lb-cap" id="lbCap"></p><div class="lb-nav"><button type="button" id="lbPrev">← Назад</button><button type="button" id="lbNext">Дальше →</button></div></div>
+</div>
+
+<script>
+(function () {
+  var A = 'Архитектура', D = '3D', M = 'Моушн';
+  var works = [
+    ['kitchen.jpg', A, 'Кухня-гостиная', 'Интерьер по плану'],
+    ['ch-bot-05.jpg', D, 'Персонаж', '3D-модель с текстурой'],
+    ['v-umbrella.mp4', M, 'Девочка с красным зонтом', 'Ролик по описанию'],
+    ['living.jpg', A, 'Гостиная', 'Интерьер, двусветное пространство'],
+    ['anime-0.45.jpg', M, 'Аниме: салют', 'Кадр ролика'],
+    ['dino.jpg', D, 'Дракончик', '3D-персонаж'],
+    ['plan-3d.jpg', A, 'Этаж в 3D', 'Из фото плана'],
+    ['tr-09.jpg', D, 'Комод из фото', '1000 × 550 × 900 мм · 49 с'],
+    ['eagle-0.45.jpg', M, 'Орёл в горах', 'Реалистичный ролик'],
+    ['ch-top-05.jpg', D, 'Пёсик', '3D-персонаж'],
+    ['city-1.jpg', A, 'Дом на участке', 'Фотореалистичный кадр'],
+    ['looks.jpg', M, '12 стилей одной сцены', 'Моушн-графика'],
+    ['bedroom_2.jpg', A, 'Спальня', 'Интерьер'],
+    ['3d-object.jpg', D, 'Остров с беседкой', '3D-сцена'],
+    ['v-fireworks.mp4', M, 'Салют над озером', 'Аниме-ролик'],
+    ['ch-top-02.jpg', D, 'Персонаж', '3D-модель'],
+    ['foto-g-p1-kitchen-0-evening.jpg', A, 'Кухня вечером', '«Фото»: Blender на видеокарте'],
+    ['astro-0.8.jpg', M, 'Космонавт и цветок', 'Кадр ролика'],
+    ['ch-bot-11.jpg', D, 'Лесной персонаж', '3D-модель'],
+    ['render.jpg', A, 'Загородный дом', 'Рендер'],
+    ['typography.jpg', M, 'Кинетическая типографика', 'Моушн-графика'],
+    ['donut.jpg', D, 'Пончик', '3D-предмет'],
+    ['balcony.jpg', A, 'Лоджия', 'Интерьер'],
+    ['coat-0.45.jpg', M, 'Осенний парк', 'Ролик «как в кино»'],
+    ['ch-top-07.jpg', D, 'Персонаж', '3D-модель'],
+    ['room-styled.jpg', A, 'Кабинет в стиле', 'Комната до и после'],
+    ['tr-42.jpg', D, 'Банкетка из фото', '1600 × 700 × 1000 мм · 30 с'],
+    ['info-s4.jpg', M, 'Выручка по кварталам', 'Инфографика'],
+    ['ch-bot-07.jpg', D, 'Предмет', '3D-модель'],
+    ['bedroom_3.jpg', A, 'Спальня вечером', 'Интерьер'],
+    ['ui-0.8.jpg', M, 'Экран приложения', 'Анимация интерфейса'],
+    ['ch-top-09.jpg', D, 'Персонаж', '3D-модель'],
+    ['interior.jpg', A, 'Столовая', 'Интерьер'],
+    ['scene.jpg', D, 'Сцена с подиумом', '3D-сцена'],
+    ['logo.jpg', M, 'Анимация логотипа', 'Моушн-графика'],
+    ['ch-bot-03.jpg', D, 'Персонаж', '3D-модель'],
+    ['foto-g-p5-living-0-evening.jpg', A, 'Гостиная вечером', '«Фото»: Blender на видеокарте'],
+    ['ch-top-11.jpg', D, 'Объятия', '3D-модель'],
+    ['auto.jpg', M, 'Афиша вечеринки', 'Моушн-графика'],
+    ['tr-03.jpg', D, 'Кресло из фото', '700 × 600 × 1050 мм'],
+    ['bedroom_1.jpg', A, 'Спальня, вариант', 'Интерьер'],
+    ['ch-bot-12.jpg', D, 'Персонаж', '3D-модель']
+  ];
+  var isVid = function (f) { return /\.mp4$/.test(f); };
+  var media = function (f, cls) {
+    return isVid(f)
+      ? '<video src="media/' + f + '" poster="media/' + f.replace('.mp4', '-poster.jpg') + '" autoplay muted loop playsinline preload="metadata"' + (cls || '') + '></video>'
+      : '<img src="media/' + f + '" alt="" loading="lazy"' + (cls || '') + '>';
+  };
+
+  /* Лента на обложке */
+  var a = ['kitchen.jpg','anime-0.45.jpg','ch-bot-05.jpg','city-1.jpg','dino.jpg','eagle-0.45.jpg','living.jpg','ch-top-05.jpg','v-umbrella.mp4','3d-object.jpg'];
+  var b = ['astro-0.8.jpg','tr-09.jpg','bedroom_2.jpg','ch-top-02.jpg','coat-0.45.jpg','plan-3d.jpg','donut.jpg','v-fireworks.mp4','render.jpg','ch-bot-11.jpg'];
+  function fill(id, list) { var h = list.map(function (f) { return '<div>' + media(f) + '</div>'; }).join(''); document.getElementById(id).innerHTML = h + h; }
+  fill('trackA', a); fill('trackB', b);
+
+  /* Галерея с фильтром */
+  var grid = document.getElementById('grid'), filters = document.getElementById('filters'), cur = 'Все', shown = [];
+  var cats = ['Все', A, D, M];
+  filters.innerHTML = cats.map(function (c, i) {
+    var n = c === 'Все' ? works.length : works.filter(function (w) { return w[1] === c; }).length;
+    return '<button type="button" id="f-' + i + '" aria-pressed="' + (c === cur) + '" data-c="' + c + '">' + c + '<small>' + n + '</small></button>';
+  }).join('');
+  function render() {
+    shown = works.filter(function (w) { return cur === 'Все' || w[1] === cur; });
+    grid.innerHTML = shown.map(function (w, i) {
+      return '<button type="button" class="work" data-i="' + i + '" aria-label="' + w[2] + ' — открыть крупно">' + media(w[0]) +
+        (isVid(w[0]) ? '<span class="play">ВИДЕО</span>' : '') + '<span class="tag">' + w[1] + ' · ' + w[2] + '</span></button>';
+    }).join('');
+  }
+  filters.addEventListener('click', function (e) {
+    var btn = e.target.closest('button'); if (!btn) return;
+    cur = btn.getAttribute('data-c');
+    filters.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === btn ? 'true' : 'false'); });
+    render();
+  });
+  render();
+
+  /* Просмотр крупно */
+  var lb = document.getElementById('lb'), stage = document.getElementById('lbStage'), cap = document.getElementById('lbCap'), count = document.getElementById('lbCount'), at = 0, opener = null;
+  function show(i) {
+    at = (i + shown.length) % shown.length; var w = shown[at];
+    stage.innerHTML = isVid(w[0]) ? '<video src="media/' + w[0] + '" autoplay muted loop playsinline controls></video>' : '<img src="media/' + w[0] + '" alt="' + w[2] + '">';
+    cap.innerHTML = w[2] + '<small>' + w[1] + ' · ' + w[3] + '</small>';
+    count.textContent = (at + 1) + ' / ' + shown.length;
+  }
+  function open(i) { opener = document.activeElement; show(i); lb.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('lbNext').focus(); }
+  function close() { lb.hidden = true; stage.innerHTML = ''; document.body.style.overflow = ''; if (opener) opener.focus(); }
+  grid.addEventListener('click', function (e) { var c = e.target.closest('.work'); if (c) open(+c.getAttribute('data-i')); });
+  document.getElementById('lbClose').onclick = close;
+  document.getElementById('lbPrev').onclick = function () { show(at - 1); };
+  document.getElementById('lbNext').onclick = function () { show(at + 1); };
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target === stage) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close(); else if (e.key === 'ArrowRight') show(at + 1); else if (e.key === 'ArrowLeft') show(at - 1);
+  });
+  var sx = null;
+  lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1)); sx = null; });
+
+  /* Кейсы */
+  var furn = [['09','Комод выпуклый','1000 × 550 × 900 мм · 49 с'],['03','Кресло, красное сиденье','700 × 600 × 1050 мм'],['42','Банкетка, гобелен','1600 × 700 × 1000 мм · 30 с'],
+              ['37','Диван ампир','2000 × 700 × 900 мм · 29 с'],['13','Витрина','2000 × 450 × 1600 мм · 78 с'],['27','Рабочий стул','500 × 550 × 900 мм · 29 с']];
+  document.getElementById('furn').innerHTML = furn.map(function (f) {
+    return '<figure><div class="duo"><img src="media/tp-' + f[0] + '.jpg" alt="Фото: ' + f[1] + '" loading="lazy"><span class="arr">→</span><img src="media/tr-' + f[0] + '.jpg" alt="3D-модель: ' + f[1] + '" loading="lazy"></div><figcaption><b>' + f[1] + '.</b> ' + f[2] + '</figcaption></figure>';
+  }).join('');
+  var reels = [['fireworks','Аниме: салют над озером'],['umbrella','Девочка с красным зонтом'],['plane','Сцена 1: вертолётик'],['park','Сцена 2: запуск'],['park2','Сцена 3: в небо']];
+  document.getElementById('reels').innerHTML = reels.map(function (r) {
+    return '<figure><video src="media/v-' + r[0] + '.mp4" poster="media/v-' + r[0] + '-poster.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption>' + r[1] + '</figcaption></figure>';
+  }).join('');
+  var strips = [['anime','Аниме'],['astro','Космонавт и цветок'],['coat','«Как в кино»: осенний парк'],['eagle','Реалистичный: орёл в горах']];
+  document.getElementById('strips').innerHTML = strips.map(function (s) {
+    return '<figure><div class="strip">' + ['0.12','0.45','0.8'].map(function (t) {
+      return '<img src="media/' + s[0] + '-' + t + '.jpg" alt="' + s[1] + ', кадр" loading="lazy">';
+    }).join('') + '</div><figcaption>' + s[1] + ' · начало, середина, финал ролика</figcaption></figure>';
+  }).join('');
+
+  /* «Фото»: комната и свет */
+  var names = {'p2-living-0': 'Гостиная', 'p1-kitchen-0': 'Кухня', 'p5-living-0': 'Гостиная 2'}, room = 'p1-kitchen-0', time = 'day';
+  var limg = document.getElementById('lightImg'), lcap = document.getElementById('lightCap');
+  function paint() { limg.src = 'media/foto-g-' + room + '-' + time + '.jpg'; limg.alt = names[room] + ', ' + (time === 'day' ? 'дневной свет' : 'вечерний свет'); lcap.textContent = names[room] + ' · ' + (time === 'day' ? 'день' : 'вечер'); }
+  function wire(id, set) {
+    var seg = document.getElementById(id);
+    seg.addEventListener('click', function (e) { var btn = e.target.closest('button'); if (!btn) return;
+      seg.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === btn ? 'true' : 'false'); }); set(btn.getAttribute('data-v')); paint(); });
+  }
+  wire('roomSeg', function (v) { room = v; }); wire('timeSeg', function (v) { time = v; });
+
+  /* Активный пункт меню */
+  var links = document.querySelectorAll('.links a'), ids = ['works', 'architecture', 'three-d', 'motion', 'about'];
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) links.forEach(function (l) { l.classList.toggle('on', l.getAttribute('href') === '#' + en.target.id); }); });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ids.forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  }
+})();
+</script>
+
+</body>
+</html>
