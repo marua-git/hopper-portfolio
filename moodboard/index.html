@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moodboard — Marua Makpyr</title>
+<meta name="description" content="A ten-image moodboard by Marua Makpyr: soft tactile 3D, warm quiet interiors, cinematic light and violet gradients.">
+<meta property="og:title" content="Moodboard — Marua Makpyr">
+<meta property="og:image" content="../media/ch-top-11.jpg">
+<link rel="icon" href="../media/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: a single collage wall on a violet gradient; each image carries one short note on why it is here. */
+:root {
+  --ink: #f6f2ff; --muted: #b6abd9; --line: rgba(255, 255, 255, .1);
+  --grad: linear-gradient(100deg, #8b5cf6 0%, #e04fb8 45%, #ff7a45 100%);
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; color: var(--ink); font-family: var(--body); line-height: 1.55;
+  background: radial-gradient(80% 60% at 15% 0%, #4c1d95 0%, transparent 60%), radial-gradient(70% 50% at 100% 20%, #9d174d 0%, transparent 60%), linear-gradient(180deg, #1a0d42 0%, #140a33 50%, #0f0826 100%) fixed; }
+img { display: block; max-width: 100%; }
+.in { max-width: 1240px; margin: 0 auto; padding-block: 56px 64px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+header { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 32px; align-items: end; margin-bottom: 36px; }
+.eyebrow { font: 600 12px/1 var(--body); letter-spacing: .18em; text-transform: uppercase; color: #c4b5fd; }
+h1 { font: 700 clamp(30px, 4.6vw, 58px)/1.05 var(--display); letter-spacing: -0.02em; margin: 14px 0 0; text-wrap: balance; }
+.gt { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+header p { margin: 0; color: var(--muted); font-size: 16px; max-width: 52ch; }
+.swatches { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+.swatches span { width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--line); }
+.wall { columns: 4 230px; column-gap: 14px; }
+figure { margin: 0 0 14px; break-inside: avoid; display: flex; flex-direction: column; gap: 8px; }
+figure img { width: 100%; height: auto; border-radius: 16px; box-shadow: 0 0 0 1px var(--line); }
+figcaption { font-size: 13px; color: var(--muted); padding-inline: 2px; }
+figcaption b { color: var(--ink); font-weight: 600; }
+.n { font: 700 11px var(--display); background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; margin-right: 6px; }
+footer { margin-top: 28px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; }
+footer a { color: var(--ink); }
+@media (max-width: 800px) { header { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .wall { columns: 2 140px; column-gap: 10px; } figure { margin-bottom: 10px; } }
+</style>
+</head>
+<body>
+<div class="in">
+  <header>
+    <div>
+      <p class="eyebrow">Moodboard · Marua Makpyr</p>
+      <h1>Soft, tactile, <span class="gt">lit like a film</span></h1>
+    </div>
+    <div>
+      <p>Ten images that sum up my eye: materials you want to touch, calm warm interiors, a single strong colour against a quiet frame, and violet-to-coral gradients. All of them were made with Hopper, the AI platform I build.</p>
+      <div class="swatches" aria-label="Palette">
+        <span style="background:#1a0d42" title="#1A0D42"></span><span style="background:#8b5cf6" title="#8B5CF6"></span><span style="background:#e04fb8" title="#E04FB8"></span><span style="background:#ff7a45" title="#FF7A45"></span><span style="background:#e9dccb" title="#E9DCCB"></span><span style="background:#c8102e" title="#C8102E"></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="wall">
+    <figure><img src="../media/ch-top-11.jpg" alt="Two knitted figures hugging"><figcaption><span class="n">01</span><b>Texture first.</b> Wool and felt you can almost feel; softness as a mood.</figcaption></figure>
+    <figure><img src="../media/coat-0.8.jpg" alt="Woman in a red coat in backlit autumn light"><figcaption><span class="n">02</span><b>One red accent.</b> A single strong colour in a warm, backlit frame.</figcaption></figure>
+    <figure><img src="../media/interior.jpg" alt="Calm dining room with a round table and paper pendant"><figcaption><span class="n">03</span><b>Quiet interiors.</b> Natural wood, linen tones, one sculptural lamp.</figcaption></figure>
+    <figure><img src="../media/anime-0.45.jpg" alt="Two anime characters watching fireworks at night"><figcaption><span class="n">04</span><b>Night colour.</b> Saturated light against deep blue, the anime way.</figcaption></figure>
+    <figure><img src="../media/r3d-statue-1.jpg" alt="Marble and gold statue holding scales on a violet gradient"><figcaption><span class="n">05</span><b>Classic on gradient.</b> Old forms in new light: marble and gold on violet.</figcaption></figure>
+    <figure><img src="../media/ch-bot-07.jpg" alt="Translucent violet jelly shape with stars"><figcaption><span class="n">06</span><b>Glossy and translucent.</b> Jelly, glass, light passing through.</figcaption></figure>
+    <figure><img src="../media/eagle-0.8.jpg" alt="Eagle spreading its wings above misty mountains"><figcaption><span class="n">07</span><b>Atmosphere.</b> Mist, depth and a calm, wide frame.</figcaption></figure>
+    <figure><img src="../media/ch-top-02.jpg" alt="Character with fluffy blue hair and a flower sweater"><figcaption><span class="n">08</span><b>Characters with humour.</b> Odd proportions, playful materials.</figcaption></figure>
+    <figure><img src="../media/living.jpg" alt="Double-height living room with soft daylight"><figcaption><span class="n">09</span><b>Space and light.</b> Height, soft daylight and nothing extra.</figcaption></figure>
+    <figure><img src="../media/v-umbrella-poster.jpg" alt="Girl in a yellow raincoat with a red umbrella on a rainy street"><figcaption><span class="n">10</span><b>Rain and reflections.</b> Wet streets, warm windows, primary colours.</figcaption></figure>
+  </div>
+
+  <footer>
+    <span>Marua Makpyr · 2026</span>
+    <a href="../">See the full portfolio →</a>
+  </footer>
+</div>
+</body>
+</html>
